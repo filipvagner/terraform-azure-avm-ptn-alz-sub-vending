@@ -72,3 +72,13 @@ output "virtual_network_resource_ids" {
   description = "A map of virtual network resource ids, keyed by the var.virtual_networks input map. Only populated if the virtualnetwork submodule is enabled."
   value       = local.virtual_network_resource_ids
 }
+
+output "subnets" {
+  description = <<DESCRIPTION
+Information about the subnets created in the module.
+
+Please refer to the subnet module documentation for details of the outputs
+DESCRIPTION
+  # All subnets now use the subnet module for consistent interface
+  value = module.subnet
+}
